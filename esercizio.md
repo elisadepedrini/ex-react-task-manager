@@ -49,3 +49,21 @@ In questo modo, l'URL sarà accessibile in tutto il progetto senza doverlo scriv
 [x] Stampare in console i dati ricevuti per verificare il corretto recupero delle informazioni.
 
 [x] Rendere disponibile il GlobalContext.Provider in App.jsx, avvolgendo l'intera applicazione.
+
+
+📌 Milestone 3 - Lista dei Task (Pagina)
+Visualizzare l'elenco dei task in una tabella e ottimizzare il rendering con React.memo().
+
+
+[x] Recuperare la lista dei task dal GlobalContext e mostrarla nella pagina TaskList.jsx.
+
+[x] Strutturare TaskList.jsx come una tabella, con le intestazioni Nome, Stato, Data di Creazione.
+
+[x] Creare un componente TaskRow.jsx, che rappresenta una singola riga della tabella e mostra solo le proprietà title, status e createdAt (escludendo description).
+
+[x] Applicare uno stile differente alla colonna status, assegnando i seguenti colori di sfondo alle celle in base al valore dello stato:
+"To do" → rosso
+"Doing" → giallo
+"Done" → verde
+
+[x] Utilizzare React.memo() su TaskRow.jsx per ottimizzare le prestazioni ed evitare render inutili.

@@ -1,5 +1,5 @@
 * {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family:'Courier New', Courier, monospace
 }
 
 /* NAVBAR */
@@ -31,3 +31,26 @@ nav a.active {
     background: #ff8f00;
     color: black;
 }
+
+
+/* TABELLA */
+
+table {
+    border: 1px solid #ff8f00;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border-spacing: 0;
+}
+
+thead {
+    background-color: #ff8f00;
+    border-radius: 8px;
+
+}
+
+th, td {
+    padding: 10px 20px;
+    border: 0.5px solid rgb(206, 206, 206);
+}
+
+
