@@ -54,3 +54,71 @@ th, td {
 }
 
 
+
+/* FORM */
+form {
+    width: 480px;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: white;
+    border: 1px solid #ffe0a3;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    font-family: system-ui, sans-serif;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 15px;
+    border: 1px solid #d8d8e0;
+    border-radius: 8px;
+    background: #fafafa;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+form textarea {
+    height: 90px;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: none;
+    border-color: #ff8f00;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255, 143, 0, 0.18);
+}
+
+
+form strong {
+    font-size: 13px;
+    margin-top: -6px;
+}
+
+form p {
+    font-size: 13px;
+    margin-bottom: -6px;
+}
+
+form button {
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background: #ff8f00;
+    border: none;
+    border-radius: 8px;
+}
+
+form button:hover {
+    background: #e07e00;
+}
+
+
