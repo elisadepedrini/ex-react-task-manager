@@ -1,8 +1,11 @@
 import { useRef, useState } from "react"
+import { useGlobalContext } from "../contexts/GlobalContext"
 
 export default function AddTask() {
 
     const symbols = "!@#$%^&*()-_=+[]{}|;:'\\,.<>?/`~"
+
+    const {addTask} = useGlobalContext()
 
     // Campi controllati
     const [title, setTitle] = useState("")
@@ -16,21 +19,33 @@ export default function AddTask() {
     const titleValid = title.split("").every(el => !symbols.includes(el))
 
     // Submit
-    const submit = (e) => {
+    const submit = async(e) => {
         e.preventDefault()
-
-        const description = descriptionRef.current.value
-        const status = statusRef.current.value
 
 
         if ( !title.trim() || !titleValid) {
             alert ("Compila tutti i campi")
             return
-        }  console.log(`
-            Titolo: ${title};
-            Descrizione: ${description};
-            Stato: ${status}
-            `);      
+        }
+        
+        const newTask = {
+            title: title.trim(),
+            description: descriptionRef.current.value,
+            status: statusRef.current.value
+
+        }
+
+
+        try {
+            await addTask(newTask)
+            alert("Task aggiunto!")
+            setTitle("")
+            descriptionRef.current.value = ""
+            statusRef.current.value = "To do"
+
+        } catch(error) {
+            alert(error.message)
+        }
     }
 
     return (
@@ -53,9 +68,9 @@ export default function AddTask() {
 
             <p>Seleziona lo stato</p>
             <select ref={statusRef}>
-                <option value="to-do">To do</option>
-                <option value="doing">Doing</option>
-                <option value="done">Done</option>
+                <option value="To do">To do</option>
+                <option value="Doing">Doing</option>
+                <option value="Done">Done</option>
             </select>
 
             <button>Aggiungi Task</button>

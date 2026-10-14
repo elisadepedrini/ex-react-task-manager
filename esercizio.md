@@ -105,3 +105,37 @@ const symbols = "!@#$%^&*()-_=+[]{}|;:'\\",.<>?/`~";
 3. Gestione del Submit del Form:
 
 [x] Al click del bottone "Aggiungi Task", il form deve SOLO stampare in console l’oggetto task con i valori inseriti (NON deve ancora essere inviata la richiesta all’API).
+
+
+
+📌 Milestone 6 - Integrazione dell'API per Aggiungere un Task (POST)
+Collegare il form di AddTask all'API e completare la funzione addTask in useTasks().
+
+
+1. Completare la funzione addTask in useTasks():
+[x] La funzione deve ricevere un oggetto contenente le proprietà title, description e status.
+
+[x] Effettuare una chiamata API POST /tasks, inviando l’oggetto come body in formato JSON.
+
+[x] La chiamata API restituisce un oggetto con la seguente struttura:
+
+In caso di successo:
+
+{ success: true, task: /* la task creata */ }
+In caso di errore:
+
+{ success: false, message: "Messaggio di errore" }
+La funzione addTask deve controllare il valore di success nella risposta:
+
+[x] Se success è true, aggiornare lo stato globale aggiungendo la nuova task.
+[x] Se success è false, lanciare un errore con message come testo.
+
+2. Modificare la gestione del Submit del Form in AddTask.jsx:
+[x] Eseguire la funzione addTask di useTasks(), passando l’oggetto con title, description e status.
+
+Se la funzione esegue correttamente l'operazione:
+[x] Mostrare un alert di conferma dell’avvenuta creazione della task.
+[x] Resettare il form.
+
+Se la funzione lancia un errore:
+[x] Mostrare un alert con il messaggio di errore ricevuto.
