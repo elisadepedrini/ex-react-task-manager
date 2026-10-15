@@ -189,3 +189,24 @@ La funzione removeTask deve controllare il valore di success nella risposta:
 
 - Se la funzione lancia un errore:
 [x] Mostrare un alert con il messaggio di errore ricevuto.
+
+
+
+📌 Milestone 9 - Componente Modal e Conferma Eliminazione Task
+Creare un componente Modal riutilizzabile e utilizzarlo per confermare l’eliminazione di un task.
+
+
+1. Creare il componente Modal.jsx, che deve:
+Accettare i seguenti props:
+[x] title: il titolo della modale.
+[x] content: il contenuto principale della modale.
+[x] show: stato booleano per mostrare o nascondere la modale.
+[x] onClose: funzione per chiudere la modale.
+[x] onConfirm: funzione eseguita al click del bottone di conferma.
+[x] confirmText (opzionale, default "Conferma"): testo del bottone di conferma.
+[x] Utilizzare ReactDOM.createPortal per rendere la modale indipendente dal flusso di rendering.
+[x] Implementare i pulsanti "Annulla" (chiude la modale) e "Conferma" (esegue onConfirm).
+
+2. Integrare il componente Modal in TaskDetail.jsx per confermare l'eliminazione:
+[x] Quando l’utente clicca su "Elimina Task", deve aprirsi la modale di conferma.
+[x] Se l’utente conferma, vengono eseguite le stesse operazioni della Milestone 8.
