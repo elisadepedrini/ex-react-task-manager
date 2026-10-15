@@ -139,3 +139,22 @@ Se la funzione esegue correttamente l'operazione:
 
 Se la funzione lancia un errore:
 [x] Mostrare un alert con il messaggio di errore ricevuto.
+
+
+
+📌 Milestone 7 - Creazione della Pagina Dettaglio Task
+Creare la pagina TaskDetail.jsx, che visualizza i dettagli di un task
+
+
+1. Aggiornare TaskRow.jsx
+[x] Rendere il title un link a /task/:id, in modo che cliccando sul nome del task si venga reindirizzati alla pagina di dettaglio.
+
+2. Aggiornare App.jsx per aggiungere la rotta TaskDetail.jsx
+[x] Aggiungere la rotta /task/:id che caricherà il componente TaskDetail.jsx.
+
+3. Creare TaskDetail.jsx per mostrare:
+[x] Nome (title)
+[x] Descrizione (description)
+[x] Stato (status)
+[x] Data di creazione (createdAt)
+[x] Un bottone "Elimina Task", che per ora stampa solo "Elimino task" in console.

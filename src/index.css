@@ -1,5 +1,5 @@
 * {
-    font-family:'Courier New', Courier, monospace
+    font-family:'Times New Roman', Times, serif
 }
 
 /* NAVBAR */
@@ -23,12 +23,12 @@ nav a {
 }
 
 nav a:hover {
-    background: #ff8f00;
+    background: #f1b8c4;
     color: black;
 }
 
 nav a.active {
-    background: #ff8f00;
+    background: #d88aa0;
     color: black;
 }
 
@@ -36,16 +36,19 @@ nav a.active {
 /* TABELLA */
 
 table {
-    border: 1px solid #ff8f00;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+   
+    border: 1px solid #d88aa0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 1rem;
     border-spacing: 0;
+    margin: 1rem auto;
+    background: #efe7e171;
+    overflow: hidden;
 }
 
 thead {
-    background-color: #ff8f00;
+    background-color: #f1b8c4;
     border-radius: 8px;
-
 }
 
 th, td {
@@ -53,18 +56,22 @@ th, td {
     border: 0.5px solid rgb(206, 206, 206);
 }
 
+tr {
+    border-radius: 1rem;
+}
+
 
 
 /* FORM */
 form {
     width: 480px;
-    margin: 0 auto;
+    margin: 1rem auto;
     padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    background: white;
-    border: 1px solid #ffe0a3;
+    background: #efe7e171;
+    border: 1px solid #d88aa0;
     border-radius: 1rem;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     font-family: system-ui, sans-serif;
@@ -78,7 +85,7 @@ form select {
     font-size: 15px;
     border: 1px solid #d8d8e0;
     border-radius: 8px;
-    background: #fafafa;
+    background: #efe7e1;
     box-sizing: border-box;
     font-family: inherit;
 }
@@ -91,9 +98,9 @@ form input:focus,
 form textarea:focus,
 form select:focus {
     outline: none;
-    border-color: #ff8f00;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(255, 143, 0, 0.18);
+    border-color: #d88aa0;
+    background: #f1b8c44d;
+    box-shadow: 0 0 0 3px rgba(255, 0, 238, 0.18);
 }
 
 
@@ -112,13 +119,22 @@ form button {
     font-size: 15px;
     font-weight: 600;
     color: white;
-    background: #ff8f00;
+    background: #d88aa0;
     border: none;
     border-radius: 8px;
 }
 
 form button:hover {
-    background: #e07e00;
+    background: #f1b8c4;
+    color: black;
 }
 
 
+.link-task {
+    text-decoration: none;
+    color: black;
+}
+
+.link-task:hover {
+    color: #d88aa0;
+}
