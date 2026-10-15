@@ -138,3 +138,21 @@ form button:hover {
 .link-task:hover {
     color: #d88aa0;
 }
+
+.button-task-detail {
+    display: block;
+    justify-content: center;
+    margin: 2rem auto;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    background: #d88aa0;
+    border: none;
+    border-radius: 8px;
+}
+
+.button-task-detail:hover {
+    background: #f1b8c4;
+    color: black;
+}

@@ -158,3 +158,34 @@ Creare la pagina TaskDetail.jsx, che visualizza i dettagli di un task
 [x] Stato (status)
 [x] Data di creazione (createdAt)
 [x] Un bottone "Elimina Task", che per ora stampa solo "Elimino task" in console.
+
+
+
+📌 Milestone 8 - Funzione di Eliminazione Task (DELETE)
+Aggiungere la funzionalità di eliminazione di un task con una chiamata API e aggiornare lo stato.
+
+
+1. Completare la funzione removeTask in useTasks():
+[x] La funzione deve ricevere un taskId e effettuare una chiamata API DELETE /tasks/:id.
+
+[x] La chiamata API restituisce un oggetto con la seguente struttura:
+
+- In caso di successo:
+{ success: true }
+
+- In caso di errore:
+{ success: false, message: "Messaggio di errore" }
+
+La funzione removeTask deve controllare il valore di success nella risposta:
+[x] Se success è true, rimuovere il task dallo stato globale.
+[x] Se success è false, lanciare un errore con message come testo.
+
+2. Gestire l'eliminazione della task in TaskDetail.jsx:
+[x] Al click su "Elimina Task", chiamare removeTask passando l'id del task.
+
+- Se la funzione esegue correttamente l'operazione:
+[x] Mostrare un alert di conferma dell’avvenuta eliminazione.
+[x] Reindirizzare l’utente alla lista dei task (/).
+
+- Se la funzione lancia un errore:
+[x] Mostrare un alert con il messaggio di errore ricevuto.
