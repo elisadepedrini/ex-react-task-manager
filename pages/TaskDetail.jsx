@@ -1,16 +1,21 @@
 import { useState } from "react"
 import Modal from "../components/Modal"
+import EditTaskModal from "../components/EditTaskModal"
 import { useGlobalContext } from "../contexts/GlobalContext"
 import { useNavigate, useParams } from "react-router-dom"
 
 
 export default function TaskDetail() {
 
-    const { tasks, removeTask } = useGlobalContext()
+    const { tasks, removeTask, updateTask } = useGlobalContext()
+
+    const [showDelete, setShowDelete] = useState(false)
+    const [showUpdate, setShowUpdate] = useState(false)
+    
+    
+    // FUNZIONE ELIMINA
 
     // Show modale
-    const [show, setShow] = useState(false)
-
     const navigate = useNavigate()
     
     // Trovo la task selezionata
@@ -23,7 +28,6 @@ export default function TaskDetail() {
 
     // Funzione di elimina
     const handleDelete = async() => {
-
         try {
             await removeTask(taskDetails.id)
             alert("Task rimossa!");
@@ -35,6 +39,18 @@ export default function TaskDetail() {
     }
 
 
+    // FUNZIONE AGGIORNA
+
+    // Funzione di aggiorna
+    const handleUpdate = async(updatedTask) => {
+        try{
+            await updateTask({id: taskDetails.id, ...updatedTask})
+            alert("Task modificata!")
+            setShowUpdate(false)
+        } catch(error) {
+            alert(error.message)
+        }
+    }
 
     return (
         <>
@@ -55,22 +71,27 @@ export default function TaskDetail() {
                     <td>{taskDetails.description}</td>
                     <td>{taskDetails.status}</td>
                     <td>{new Date(taskDetails.createdAt).toLocaleDateString()}</td>
-                </tr>
-                
+                </tr>     
             </tbody>
-        
-        
         </table>
 
-        <button className="button-task-detail" onClick={() => setShow(true)}>Elimina Task</button>
+        <button className="button-task-detail" onClick={() => setShowDelete(true)}>Elimina Task</button>
+        <button className="button-task-detail" onClick={() => setShowUpdate(true)}>Modifica Task</button>
 
         <Modal 
         title="Conferma eliminazione"
         content="Vuoi davvero eliminare la task?"
-        show={show}
-        onClose={() => setShow(false)}
+        show={showDelete}
+        onClose={() => setShowDelete(false)}
         onConfirm={handleDelete}
         confirmText="Elimina"
+        />
+
+        <EditTaskModal 
+        show={showUpdate}
+        onClose={() => setShowUpdate(false)}
+        onSave={handleUpdate}
+        task={taskDetails}
         />
 
         </>

@@ -8,7 +8,7 @@ export default function Modal({title, content, show, onClose, onConfirm, confirm
             <div className="modal-container">
                 <div className="modal">
                     <h2>{title}</h2>
-                    <p>{content}</p>
+                    <div>{content}</div>
                     <button onClick={onClose}>Annulla</button>
                     <button onClick={onConfirm}>{confirmText}</button>
                 </div>
