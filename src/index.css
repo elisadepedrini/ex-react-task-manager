@@ -188,3 +188,8 @@ form button:hover {
 
   }
 }
+
+
+.th-clicked-list th {
+    cursor: pointer;
+}

@@ -52,6 +52,8 @@ export default function TaskDetail() {
         }
     }
 
+
+
     return (
         <>
         <h1>Dettagli della Task: {taskDetails.title}</h1>

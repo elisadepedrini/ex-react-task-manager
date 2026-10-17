@@ -267,3 +267,24 @@ Strutturare il form all'interno della modale, includendo i seguenti campi:
 [x] Chiudere la modale.
 - Se la funzione lancia un errore:
 [x] Mostrare un alert con il messaggio di errore ricevuto.
+
+
+
+📌 Milestone 11 - Ordinamento delle Task
+Implementare un sistema di ordinamento nella tabella delle task, permettendo all'utente di ordinare i task in base a diversi criteri.
+
+
+1. Aggiungere due state in TaskList.jsx:
+[x] sortBy: rappresenta il criterio di ordinamento (title, status, createdAt).
+[x] sortOrder: rappresenta la direzione (1 per crescente, -1 per decrescente).
+[x] Il default di sortBy è createdAt, il default di sortOrder, è 1.
+
+2. Modificare la tabella per rendere cliccabili le intestazioni (th), in modo che al click:
+[x] Se la colonna è già selezionata (sortBy uguale alla colonna cliccata), invertire sortOrder.
+[x] Se la colonna è diversa, impostare sortBy sulla nuova colonna e sortOrder su 1.
+
+3. Implementare la logica di ordinamento con useMemo(), in modo che l’array ordinato venga ricalcolato solo quando cambiano tasks, sortBy o sortOrder:
+[x] Ordinamento per title → alfabetico (localeCompare).
+[x] Ordinamento per status → ordine predefinito: "To do" < "Doing" < "Done".
+[x] Ordinamento per createdAt → confrontando il valore numerico della data (.getTime()).
+[x] Applicare sortOrder per definire se l’ordine è crescente o decrescente.
