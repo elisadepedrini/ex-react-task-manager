@@ -193,3 +193,28 @@ form button:hover {
 .th-clicked-list th {
     cursor: pointer;
 }
+
+
+.search-input {
+    display: block;
+    width: 320px;
+    margin: 1rem auto;
+    padding: 11px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid #d88aa0;
+    border-radius: 8px;
+    background: #efe7e1;
+    box-sizing: border-box;
+}
+
+.search-input::placeholder {
+    color: #b98a97;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #d88aa0;
+    background: #f1b8c44d;
+    box-shadow: 0 0 0 3px rgba(216, 138, 160, 0.18);
+}

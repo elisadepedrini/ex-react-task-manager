@@ -1,11 +1,14 @@
 import { useGlobalContext } from "../contexts/GlobalContext"
 import TaskRow from "../components/TaskRow"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { useMemo } from "react"
 
 export default function TaskList() {
 
     const { tasks } = useGlobalContext()
+
+    // FUNZIONE RICERCA
+    const [searchQuery, setSearchQuery] = useState("")
 
     const [sortBy, setSortBy] = useState("createdAt")
     const [sortOrder, setSortOrder] = useState(1)
@@ -28,7 +31,11 @@ export default function TaskList() {
 
         let comparedTask;
 
-        return [...tasks].sort((a, b) => {
+        return [...tasks]
+        .filter(el => 
+            el.title.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+        .sort((a, b) => {
             if (sortBy === "title") {
                 comparedTask = a.title.localeCompare(b.title)
             } else if (sortBy === "status") {
@@ -40,11 +47,34 @@ export default function TaskList() {
             }
             return comparedTask * sortOrder
         })
-    }, [tasks, sortBy, sortOrder])
+    }, [tasks, sortBy, sortOrder, searchQuery])
+
+
+    function debounce(callback, delay) {
+        let timer;
+        return (value) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                callback(value);
+            }, delay);
+        };
+    }
+
+    const debouncedSearch = useCallback(
+        debounce((value) => setSearchQuery(value), 500),
+        []
+    )
 
     return(
         <>
         <h1>Lista dei Task</h1>
+
+        <input
+        type="text"
+        onChange={(e) => debouncedSearch(e.target.value)}
+        placeholder="Filtra i Task..."
+        className="search-input"
+        />
         <table>
             <thead>
                 <tr className="th-clicked-list">
